@@ -18,6 +18,19 @@ fn file_does_not_exist() -> Result<(), Box<dyn std::error::Error>> {
 }
 
 #[test]
+fn arg_is_directory() -> Result<(), Box<dyn std::error::Error>> {
+    let tmp_dir = assert_fs::TempDir::new()?;
+
+    let mut cmd = Command::cargo_bin(env!("CARGO_CRATE_NAME"))?;
+    cmd.arg(tmp_dir.path());
+    cmd.assert()
+        .failure()
+        .stderr(predicate::str::contains("Is a directory"));
+
+    Ok(())
+}
+
+#[test]
 fn default_algorithm() -> Result<(), Box<dyn std::error::Error>> {
     let old_file_name = "file_with_extension.txt";
     let new_file_name = "ba7816bf8f01cfea414140de5dae2223b00361a396177a9cb410ff61f20015ad.txt";
