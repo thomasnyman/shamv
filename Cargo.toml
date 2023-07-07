@@ -1,0 +1,15 @@
+[package]
+name = "shamv"
+version = "0.0.1"
+edition = "2021"
+
+[dependencies]
+getopts = "0.2.21"
+digest = "0.10.7"
+sha2 = "0.10.7"
+hex = "0.4.3"
+
+[dev-dependencies]
+assert_cmd = "2.0.11"
+assert_fs = "1.0.13"
+predicates = "3.0.3"
