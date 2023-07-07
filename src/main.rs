@@ -39,7 +39,7 @@ separated by a dot (.) character, the destination path is formed by the concaten
 hash and the filename extension suffixes of the original FILE name.
 
 Mandatory arguments to long options are mandatory for short options too.
- -a, --algorithm      The SHA-2 algorithm to use: sha224, sha256 (default), or sha512.
+ -a, --algorithm      The SHA-2 algorithm to use: sha224, sha256 (default), sha384, or sha512.
  -n, --dry-run        Display the current and new filenames but do not perform the rename.
  -h, --help           Print this help and exit.
  -V, --version        Print the version of the program and exit."#,
@@ -56,6 +56,7 @@ fn get_digest_alg(s: &str) -> Option<Box<dyn DynDigest>>{
               "" => Some(Box::new(sha2::Sha256::default())),  // Default digest algorithm
         "sha224" => Some(Box::new(sha2::Sha224::default())),
         "sha256" => Some(Box::new(sha2::Sha256::default())),
+        "sha384" => Some(Box::new(sha2::Sha384::default())),
         "sha512" => Some(Box::new(sha2::Sha512::default())),
                _ => None,  // Unsupported digest
     }
