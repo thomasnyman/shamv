@@ -50,7 +50,7 @@ Further suggestions for use cases and feature requests can be submitted as
     suffixes of the original FILE name.
 
     Mandatory arguments to long options are mandatory for short options too.
-     -a, --algorithm      The SHA-2 algorithm to use: sha256 (default).
+     -a, --algorithm      The SHA-2 algorithm to use: sha256 (default) or sha512.
      -n, --dry-run        Display the current and new filenames but do not
                           perform the rename.
      -h, --help           Print this help and exit.
